@@ -8,20 +8,40 @@
 </head>
 <body>
 
- 
-        <div class="header">
+        <div class="bcimages">
+            <img src="img/bb.png" alt="" class="pr">
+            <img src="img/creep.png" alt="" class="cr">
+            <img src="img/flymouse.png" alt="" class="fl">
+            <img src="img/slend.png" alt="" class="sl">
+        </div>
+
+        <div class="wrapper">
+            <div class="header" >
+                <img class="logo" src="img/logo.png" alt="">
             <div class="page_selected">
                 <div id="1" class=" items select_item">МАГАЗИН</div>
                 <div id="2" class="items">ПРАВИЛА</div>
                 <div onclick="location='https://example.com/'" class="items">ГРУППА</div>
             </div>
+                <input type="checkbox" id="burger-toggle">
+        
+                <label for="burger-toggle" class="burger-btn">
+                    <img src="img/burger.svg" alt="">
+                </label>
+                
+                <nav class="menu">
+                    <div class="menu_close">x</div>
             <img class="logo" src="img/logo.png" alt="">
+                    <div id="3" class=" items">МАГАЗИН</div>
+                    <div id="4" class="items">ПРАВИЛА</div>
+                    <div onclick="location='https://example.com/'" class="items">ГРУППА</div>
+                </nav>
         </div>
     <div class="page_container">
         
     
         <div class="dscr_card">
-            <div style="font-size: 35px; border-bottom: 3px solid; margin-bottom: 30px; font-weight: 500;" class="title">Донат валюта</div>
+                <div style="font-size: 60px;  margin-bottom: 30px; font-weight: 1000; color: #ffb700;" class="title">Донат валюта</div>
             <div class="subtitle">Это игровая валюта под названием “xCoin”. За это валюту осуществляется приобретение внутри игровых ценностей и иных платных услуг. <br> <br>Для приобретения в игре /donate</div>
         </div>
         <div class="card_container">
@@ -53,6 +73,7 @@
                     <div class="total_price">$ 300</div>
                 </div>
                </div>
+
                <div class="moneycard">
                 <img class="icon"  src="img/upscayl_png_remacri-4x_3x/coin4.png" alt="">
                 <div class="price">400</div>
@@ -61,6 +82,7 @@
                     <div class="checbox dactive"></div>
                     <div class="total_price">$ 400</div>
                 </div>
+
                </div>
                <div class="moneycard">
                 <img class="icon"  src="img/upscayl_png_remacri-4x_3x/coin5.png" alt="">
@@ -115,15 +137,68 @@
             <div class="modal_close">x</div>
             <div style="font-size: 25px; color: white; margin-bottom: 15px;;"  class="pay_info">ПОКУПКА ВАЛЮТЫ</div>
             <input type="text" name="name" maxlength="30" placeholder="Введите свой ник" id="">
-            <input type="text" name="mess" maxlength="30"  placeholder="Короткое описание (необязательно)" id="">
+                <input type="text" name="mail" maxlength="30"  placeholder="Введите эл. почту" id="">
            <input type="button" class="btn" value="купить валюту">
             <div class="confid">Нажимая на кнопку, вы соглашаетесь с <a href="">Условиями обработки перс. данных</a>, а также <a href="">Условиями продажи</a>.</div>
         </div>
     </div>
-    
+        </div>
 
     
 
+    
+        <script>
+            // Создаем и добавляем прелоадер
+            const preloader = document.createElement('div');
+            preloader.id = 'preloader';
+            preloader.innerHTML = `
+                <div class="spinner"></div>
+                <div class="loading-text">Загрузка страницы...</div>
+                <style>
+                    #preloader {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: #fff;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 9999;
+                    }
+                    .spinner {
+                        width: 50px;
+                        height: 50px;
+                        border: 5px solid #f3f3f3;
+                        border-top: 5px solid #3498db;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                        margin-bottom: 15px;
+                    }
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                    .loading-text {
+                        font-family: Arial, sans-serif;
+                        font-size: 16px;
+                        color: #333;
+                    }
+                </style>
+            `;
+            document.body.appendChild(preloader);
+    
+            // Ждем полной загрузки страницы
+            window.addEventListener('load', function() {
+                // Добавляем небольшую задержку для плавности
+                setTimeout(function() {
+                    document.body.classList.add('loaded');
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            });
+        </script>
   <script src="script.js"></script>
 </body>
 </html>
